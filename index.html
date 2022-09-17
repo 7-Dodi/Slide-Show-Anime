@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            --border_color: #673b63;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fef4ad;
+            animation: change_background 3s linear infinite;
+        }
+        .main{
+            height: 300px;
+            width: 500px;
+            border-bottom: 7px solid var(--border_color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .candle_body{
+            height: 190px;
+            width: 80px;
+            background: #fff;
+            border: 4px solid var(--border_color);
+            box-shadow: inset -2px -2px 0px 0px #00cec9;
+            transform-origin: bottom;
+            animation: animate 3s linear infinite;
+            bottom: 0;
+            position: absolute;
+        }
+        @keyframes animate{
+            0%, 40%{
+                transform: scale(1,1);
+            }
+            45%, 55%{
+                transform: scale(1.1,1.1);
+            }
+            60%{
+                transform: scale(0.89,0.89);
+            }
+            65%{
+                transform: scale(1,1);
+            }
+            70%{
+                transform: scale(0.95, 0.85);
+            }
+            75%{
+                transform: scale(1,1);
+            }
+        }
+        .candle_body::after{
+            content: "";
+            position: absolute;
+            height: 50px;
+            width: 5px;
+            background: var(--border_color);
+            top: -50px;
+            left: 33px;
+            border-radius: 3px;
+        }
+        .eye_1, .eye_2{
+            height: 10px;
+            width: 10px;
+            background: var(--border_color);
+            border-radius: 50%;
+            animation: blink  3s linear infinite;
+        }
+        .eyes{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 10px;
+        }
+        @keyframes blink{
+            0%, 40%{
+                opacity: 1;
+                transform: translateX(0px);
+            }
+            41%,46%{
+                opacity: 0;
+                transform: translateX(0px);
+            }
+            46%, 59%{
+                opacity: 1;
+                transform: translateX(0px);
+            }
+            59%, 62%{
+                opacity: 1;
+                transform: translateX(-5px);
+            }
+            62%, 75%{
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+        .mouth{
+            height: 30px;
+            width: 30px;
+            background: var(--border_color);
+            border-radius: 50%;
+            margin-left: 15px;
+            margin-top: 10px;
+            animation: fill_air_mouth 3s linear infinite;
+        }
+        @keyframes fill_air_mouth{
+            0%, 40%{
+                width: 0px;
+                height: 0px;
+            }
+            50%, 54%{
+                width: 30px;
+                height: 30px;
+                left: 30%;
+            }
+            59%{
+                width: 5px;
+                height: 5px;
+                left: 2px;
+            }
+            62%{
+                width: 2px;
+                height: 2px;
+                left: 30%;
+                transform-origin: left center;
+            }
+            67%{
+                width: 0px;
+                height: 0px;
+                left: 35%;
+                transform-origin: left center;
+            }
+            100%{
+                width: 0px;
+                left: 0px;
+                height: 0px;
+            }
+        }
+        .candle_body_2{
+            height: 110px;
+            width: 100px;
+            background: #fff;
+            border: 4px solid var(--border_color);
+            position: absolute;
+            bottom: -7px;
+            left: 70px;
+            border-radius: 3px;
+            animation: uff 3s linear infinite;
+            box-shadow: -2px -2px 0px 0px #00c3c9;
+            transform-origin: bottom;
+            z-index: -1;
+        }
+        @keyframes uff{
+            0%, 55%{
+                height: 110px;
+                width: 100px;
+                background: #fff;
+                transform:  scale(1,1) translate(0%, 0%);
+                box-shadow: inset-2px -2px 0px 0px #00c3c9;
+            }
+            56%, 65%{
+                height: 110px;
+                width: 100px;
+                background: #fff;
+                transform: scale(1, 1) translate(-5%, 0%);
+            }
+            66%, 72%{
+                height: 110px;
+                width: 100px;
+                background: #fff;
+                transform: scale(1,1) translate(0%, 0%);
+                box-shadow: inset-2px -2px 0px 0px #00cec9;
+            }
+            72%, 95%{
+                height: 110px;
+                width: 100px;
+                background: #e74c3c;
+                transform: scale(1,1) translate(0%, 0%);
+                box-shadow: inset-2px -2px 0px 0px #f57c6f;
+            }
+            96%, 100%{
+                height: 110px;
+                width: 100px;
+                background: #fff;
+                transform: scale(1,1) translate(0%, 0%);
+                box-shadow: inset-2px -2px 0px 0px #00cec9;
+            }
+        }
+        .light_wave{
+            position: absolute;
+            height: 30px;
+            width: 5px;
+            background: var(--border_color);
+            top: -30px;
+            left: 43px;
+            border-radius: 3px;
+            animation: candle_string 3s linear infinite;
+            transform-origin: bottom;
+            transition: .2s;
+        }
+        @keyframes candle_string{
+            0%, 55%{
+                transform: rotate(0deg);
+            }
+            56%, 60%{
+                transform: rotate(0deg);
+            }
+            60%, 63%{
+                transform: rotate(10deg);
+            }
+            63%, 65%{
+                transform: rotate(0deg);
+            }
+        }
+        .light{
+            height: 45px;
+            width: 40px;
+            background: #e67e33;
+            position: absolute;
+            top: -35px;
+            left: -17px;
+            border-radius: 50% 50% 30% 30%;
+            animation: flame 3s linear infinite;
+        }
+        @keyframes flame{
+            0%, 10%{
+                background: #e67e33;
+                transform: translateX(0px);
+            }
+            11%, 20%{
+                background: #f1c40f;
+                transform: translateX(1px);
+            }
+            21%, 30%{
+                background: #e67e33;
+                transform: translateX(-1px);
+            }
+            31%, 40%{
+                background: #f1c40f;
+                transform: translateX(1px);
+            }
+            41%, 50%{
+                background: #e67e33;
+                transform: translateX(1px);
+            }
+            51%, 55%{
+                background: #e67e33;
+                transform: translateX(-1px);
+            }
+            56%, 94%{
+                transform: translateX(1px);
+                background: transparent;
+            }
+            95%, 100%{
+                background: #e67e33;
+                transform: translateX(1px);
+            }
+        } 
+        .eye{
+            height: 10px;
+            width: 10px;
+            background: var(--border_color);
+            border-radius: 50%;
+            animation: eyes_animate 3s linear infinite;
+        }
+        @keyframes eyes_animate{
+            0%, 55%{
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                transform: rotate(0deg);
+            }
+            55%, 70%{
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                transform: rotate(0deg);
+            }
+            75%, 95%{
+                height: 5px;
+                width: 20px;
+                transform: rotate(cal(40deg * var(--i)));
+            }
+            96%, 100%{
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                transform: rotate(0deg);
+            }
+        }
+        /* .smoke{
+            width: 90px;
+            height: 2px;
+            background: #34495e;
+            position: absolute;
+            left: -120px;
+            top: -25px;
+            border-radius: 3px;
+            animation: run_left 3s linear infinite;
+        } */
+        /* @keyframes run_left{
+            0%, 53%{
+                width: 90px;
+                height: 3px;
+                transform: scaleX(0);
+            }
+            55%, 60%{
+                width: 90px;
+                height: 3px;
+                transform: scaleX(1);
+            }
+            60%, 65%{
+                width: 0px;
+                height: 3px;
+                transform: scale(0);
+            }
+            65%, 100%{
+                width: 90px;
+                height: 3px;
+                transform:  scale(0);
+            }
+        } */
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="candle_body_2">
+            <div class="smoke">
+                <div class="light_wave">
+                    <div class="light"></div>
+                </div>
+                <div class="eyes">
+                    <div class="eye" style="--i:1;"></div>
+                    <div class="eye" style="--i:1;"></div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="candle_body">
+            <div class="eyes">
+                <div class="eye_1"></div>
+                <div class="eye_2"></div>
+            </div>
+            <div class="mouth"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
